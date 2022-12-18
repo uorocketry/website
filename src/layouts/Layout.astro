@@ -12,7 +12,7 @@ const { title, theme = "light" } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="h-full accent-indigo-800">
+<html lang="en" class="h-full overflow-hidden accent-indigo-800">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -21,7 +21,7 @@ const { title, theme = "light" } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body
-		class={`relative m-auto flex h-full flex-col ${
+		class={`relative m-auto flex h-full scroll-behavior-smooth overflow-auto flex-col ${
 			theme === "dark" ? "text-white bg-gray-900" : "text-gray-900 bg-white"
 		}`}
 	>
@@ -41,3 +41,21 @@ const { title, theme = "light" } = Astro.props;
 		<slot />
 	</body>
 </html>
+
+<style is:global>
+	::-webkit-scrollbar {
+		@apply w-2 bg-transparent;
+	}
+
+	::-webkit-scrollbar-thumb {
+		@apply rounded bg-indigo-100/25;
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		@apply bg-indigo-100/50;
+	}
+
+	::-webkit-scrollbar-thumb:active {
+		@apply bg-indigo-100;
+	}
+</style>
