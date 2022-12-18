@@ -4,11 +4,11 @@ import tailwind from "@astrojs/tailwind";
 import image from "@astrojs/image";
 
 export default defineConfig({
-    integrations: [
-        mdx(),
-        tailwind(),
-        image({
-            serviceEntryPoint: "@astrojs/image/sharp",
-        }),
-    ],
+	integrations: [
+		mdx(),
+		tailwind(),
+		image({
+			serviceEntryPoint: "@astrojs/image/sharp",
+		}),
+	],
 });
