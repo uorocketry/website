@@ -1,0 +1,5 @@
+{
+    "$schema": "https://raw.githubusercontent.com/DavidAnson/vscode-markdownlint/main/markdownlint-config-schema.json",
+    "no-inline-html": false,
+    "line-length": false
+}

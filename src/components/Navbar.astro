@@ -1,0 +1,40 @@
+---
+type Link = {
+    url: string;
+    text: string;
+};
+
+const links = [
+    {
+        url: "/",
+        text: "Home",
+    },
+    ...(await Astro.glob("../pages/*"))
+        .map(page => {
+            const name = page.url.split("/").pop();
+            if (!name || name == "index") return;
+            return {
+                url: `/${name}`,
+                text: name.charAt(0).toUpperCase() + name.slice(1),
+            };
+        })
+        .filter((x): x is Link => !!x),
+] as Link[];
+---
+
+<nav class="mx-auto w-min text-xl">
+    <ul class="flex">
+        {
+            links.map(link => (
+                <li class=" ">
+                    <a
+                        href={link.url}
+                        class="mt-4 block border-b-2 border-transparent px-6 py-4 transition-colors duration-200 hover:border-black"
+                    >
+                        {link.text}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</nav>
