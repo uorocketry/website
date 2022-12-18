@@ -4,17 +4,15 @@ import tailwind from "@astrojs/tailwind";
 import image from "@astrojs/image";
 import node from "@astrojs/node";
 
-// https://astro.build/config
 export default defineConfig({
-	integrations: [
-		mdx(),
-		tailwind(),
-		image({
-			serviceEntryPoint: "@astrojs/image/sharp",
-		}),
-	],
-	output: "server",
-	adapter: node({
-		mode: "standalone",
-	}),
+    integrations: [
+        mdx(),
+        tailwind(),
+        image({
+            serviceEntryPoint: "@astrojs/image/sharp",
+        }),
+    ],
+    adapter: node({
+        mode: "standalone",
+    }),
 });
