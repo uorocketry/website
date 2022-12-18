@@ -21,7 +21,7 @@ const links = [
 		.filter((x): x is Link => !!x),
 ] as Link[];
 
-const { active } = Astro.props;
+const { active, theme } = Astro.props;
 ---
 
 <nav class="pt-4 sm:text-xl">
@@ -30,13 +30,13 @@ const { active } = Astro.props;
 			links.map(link => (
 				<li
 					class={
-						active === "Home"
-							? link.text === "Home"
-								? "text-indigo-700"
-								: "text-indigo-900"
+						theme === "dark"
+							? active === link.text
+								? "text-indigo-300"
+								: "text-indigo-100"
 							: active === link.text
-							? "text-indigo-300"
-							: "text-indigo-100"
+							? "text-indigo-700"
+							: "text-indigo-900"
 					}
 				>
 					<a
