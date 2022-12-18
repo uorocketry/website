@@ -20,16 +20,28 @@ const links = [
 		})
 		.filter((x): x is Link => !!x),
 ] as Link[];
+
+const { active } = Astro.props;
 ---
 
-<nav class="mx-auto w-min text-xl">
-	<ul class="flex">
+<nav class="pt-4 text-xl">
+	<ul class="flex flex-wrap justify-center">
 		{
 			links.map(link => (
-				<li>
+				<li
+					class={
+						active === "Home"
+							? link.text === "Home"
+								? "text-indigo-700"
+								: "text-indigo-900"
+							: active === link.text
+							? "text-indigo-300"
+							: "text-indigo-100"
+					}
+				>
 					<a
 						href={link.url}
-						class="mt-4 block border-b-2 border-transparent px-6 py-4 transition-colors duration-200 hover:border-black"
+						class="block border-b-2 border-transparent px-6 py-4 transition-colors duration-200 hover:border-current"
 					>
 						{link.text}
 					</a>

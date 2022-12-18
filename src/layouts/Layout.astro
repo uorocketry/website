@@ -1,13 +1,18 @@
 ---
+import { Picture } from "@astrojs/image/components";
+import background from "../../assets/images/desert-sunrise.jpg";
+import Navbar from "../components/Navbar.astro";
+
 export interface Props {
 	title: string;
+	theme: "dark" | "light";
 }
 
-const { title } = Astro.props;
+const { title, theme = "light" } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full accent-indigo-800">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -15,7 +20,22 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="flex flex-col h-screen">
+	<body
+		class={`relative m-auto flex h-full flex-col bg-gray-900 ${theme === "dark" ? "text-white" : "text-gray-900"}`}
+	>
+		<Navbar active={title} />
+		<Picture
+			class={`fixed inset-0 object-cover h-full -z-10 ${
+				theme === "dark" ? "filter brightness-50 blur opacity-50" : ""
+			}`}
+			src={background}
+			widths={[200, 400, 800]}
+			sizes="(min-width: 640px) 640px, 100vw"
+			alt="Desert Sunrise"
+			aspectRatio={"16:9"}
+			fit={"cover"}
+			position={"center"}
+		/>
 		<slot />
 	</body>
 </html>
