@@ -41,7 +41,9 @@ const { active } = Astro.props;
 				>
 					<a
 						href={link.url}
-						class="block border-b-2 border-transparent px-6 py-4 transition-colors duration-200 hover:border-current"
+						class={`block border-b-2 px-6 py-4 transition-colors duration-200 hover:border-current ${
+							active === link.text ? "border-current" : "border-transparent"
+						}`}
 					>
 						{link.text}
 					</a>
