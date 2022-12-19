@@ -3,12 +3,13 @@ import { Picture } from "@astrojs/image/components";
 import background from "../../assets/images/desert-sunrise.jpg";
 import Navbar from "../components/Navbar.astro";
 
-export interface Props {
+type Props = {
 	title: string;
+	path: string;
 	theme: "dark" | "light";
-}
+};
 
-const { title, theme = "light" } = Astro.props;
+const { title, path, theme = "light" } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -25,7 +26,7 @@ const { title, theme = "light" } = Astro.props;
 			theme === "dark" ? "text-white bg-gray-900" : "text-gray-900 bg-white"
 		}`}
 	>
-		<Navbar active={title} theme={theme} />
+		<Navbar active={path} theme={theme} />
 		<Picture
 			class={`fixed inset-0 object-cover h-full w-full -z-10 ${
 				theme === "dark" ? "filter brightness-50 blur opacity-50" : ""

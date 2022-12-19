@@ -1,0 +1,49 @@
+---
+import "../../assets/styles/mdx.css";
+import Button from "../components/Button.astro";
+import Footer from "../components/Footer.astro";
+import Layout from "../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+	const pages = await Astro.glob("../mdx/*.mdx");
+
+	return pages.map(page => {
+		console.log(page.Content);
+		const path = page.url?.replace("src/mdx/", "").replace(".mdx", "").replace(/-/g, " ");
+		return {
+			params: {
+				path,
+			},
+			props: {
+				title: page.frontmatter.title,
+				path,
+				page,
+			},
+		};
+	});
+}
+
+type Props = {
+	path: string;
+	title: string;
+	page: { Content: any };
+};
+
+const {
+	path,
+	title,
+	page: { Content },
+} = Astro.props;
+
+export const MDXComponents = {
+	a: Button,
+};
+---
+
+<Layout title={title} path={path} theme={"dark"}>
+	<main id="mdx" class="m-auto max-w-screen-md px-4">
+		<h1 class="text-center text-4xl font-bold">{title}</h1>
+		<Content components={MDXComponents} />
+	</main>
+	<Footer theme={"dark"} />
+</Layout>

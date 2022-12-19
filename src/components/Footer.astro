@@ -1,8 +1,14 @@
 ---
 import { Icon } from "astro-icon";
+
+type Props = {
+	theme: "light" | "dark";
+};
+
+const { theme } = Astro.props;
 ---
 
-<footer class="mt-6 text-indigo-200">
+<footer class={`mt-6 ${theme === "light" ? "text-indigo-900" : "text-indigo-200"}`}>
 	<nav>
 		<ul class="mb-6 flex justify-evenly gap-2">
 			<li><a href="https://github.com/uorocketry"><Icon size={36} pack="mdi" name="github" /></a></li>

@@ -5,21 +5,23 @@ type Link = {
 };
 
 const links = [
-	{
-		url: "/",
-		text: "Home",
-	},
-	...(await Astro.glob("../pages/*"))
-		.map(page => {
-			const name = page.url.split("/").pop();
-			if (!name || name == "index") return;
+	{ url: "/", text: "Home" },
+	...(await Astro.glob("../{pages,mdx}/*"))
+		.map(({ url }) => {
+			if (!url || url === "/404" || url.match(/\[.*\]/)) return;
+			const path = url.replace("src/mdx/", "").replace(".mdx", "").replace(/-/g, " ");
 			return {
-				url: `/${name}`,
-				text: name.charAt(0).toUpperCase() + name.slice(1),
+				url: path,
+				text: path.replace(/^\//, "").replace(/\b\w/g, (l: string) => l.toUpperCase()),
 			};
 		})
 		.filter((x): x is Link => !!x),
 ] as Link[];
+
+type Props = {
+	active: string;
+	theme: "dark" | "light";
+};
 
 const { active, theme } = Astro.props;
 ---
@@ -31,10 +33,10 @@ const { active, theme } = Astro.props;
 				<li
 					class={
 						theme === "dark"
-							? active === link.text
+							? active === link.url
 								? "text-indigo-300"
 								: "text-indigo-100"
-							: active === link.text
+							: active === link.url
 							? "text-indigo-700"
 							: "text-indigo-900"
 					}
@@ -42,7 +44,7 @@ const { active, theme } = Astro.props;
 					<a
 						href={link.url}
 						class={`block border-b-2 px-6 py-4 transition-colors duration-200 hover:border-current ${
-							active === link.text ? "border-current" : "border-transparent"
+							active === link.url ? "border-current" : "border-transparent"
 						}`}
 					>
 						{link.text}
