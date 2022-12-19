@@ -11,7 +11,7 @@ const links = [
 			if (!url || url === "/404" || url.match(/\[.*\]/)) return;
 			const path = url.replace("src/mdx/", "").replace(".mdx", "").replace(/-/g, " ");
 			return {
-				url: path,
+				url: `/${path}`,
 				text: path.replace(/^\//, "").replace(/\b\w/g, (l: string) => l.toUpperCase()),
 			};
 		})
