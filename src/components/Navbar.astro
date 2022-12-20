@@ -9,7 +9,7 @@ const links = [
 	...(await Astro.glob("../{pages,mdx}/*"))
 		.map(({ url }) => {
 			if (!url || url === "/404" || url.match(/\[.*\]/)) return;
-			const path = url.replace("src/mdx/", "").replace(".mdx", "").replace(/-/g, " ");
+			const path = url.replace("src/mdx/", "").replace(".mdx", "").replace(/-/g, " ").replace(/^\//, "");
 			return {
 				url: `/${path}`,
 				text: path.replace(/^\//, "").replace(/\b\w/g, (l: string) => l.toUpperCase()),
