@@ -10,7 +10,11 @@ const path = "/contact";
 <Layout title={title} path={path} theme={"dark"}>
 	<main class="m-auto flex max-w-screen-md flex-col gap-4 px-4">
 		<h1 class="text-center text-4xl font-bold">{title}</h1>
-		<form class="flex flex-col gap-4 rounded bg-black/10 p-4 shadow" action="/" method="GET">
+		<form
+			class="flex flex-col gap-4 rounded bg-black/10 p-4 shadow"
+			action="mailto:rocketry@uottawa.ca"
+			method="GET"
+		>
 			<label>Name <input type="text" name="name" /></label>
 			<label>Email <input type="email" name="email" /></label>
 			<textarea class="col-span-2" name="message" rows="5"></textarea>
@@ -19,6 +23,20 @@ const path = "/contact";
 	</main>
 	<Footer theme={"dark"} />
 </Layout>
+
+<script is:inline>
+	const form = document.querySelector("form");
+	console.log(form);
+	form?.addEventListener("submit", event => {
+		event.preventDefault();
+		const formData = new FormData(form);
+		const url = new URL(form.action);
+		url.searchParams.append("subject", `Rocketry Website Contact Form submission from ${formData.get("name")}`);
+		url.searchParams.append("body", formData.get("message"));
+		url.searchParams.append("cc", formData.get("email"));
+		window.location.href = url.toString();
+	});
+</script>
 
 <style>
 	label {
