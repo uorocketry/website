@@ -17,9 +17,49 @@ const { title, path, theme = "light" } = Astro.props;
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<meta name="robots" content="index, follow" />
+		<meta name="language" content="English" />
+		<meta name="theme-color" content="#3730a3" />
+		<meta name="title" content="uORocketry" />
+		<meta name="author" content="uORocketry" />
+		<meta
+			name="description"
+			content="uOttawa's student engineering team that designs, manufactures, and launches high-powered sounding rockets!"
+		/>
+		<meta name="keywords" content="uOttawa, Rocketry, Student, Engineering, Rocket, University of Ottawa" />
+
+		<title>{title} | uORocketry</title>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+		<link rel="manifest" href="/site.webmanifest" />
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ffffff" />
+		<meta name="msapplication-TileColor" content="#ffffff" />
+		<meta name="theme-color" content="#ffffff" />
+
+		<meta property="og:title" content="uORocketry" />
+		<meta property="og:site_name" content="uORocketry" />
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:url" content="https://uorocketry.ca" />
+		<meta
+			property="og:description"
+			content="uOttawa's student engineering team that designs, manufactures, and launches high-powered sounding rockets!"
+		/>
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content="https://uorocketry.ca/images/desert-sunrise.jpg" />
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@uORocketry" />
+		<meta name="twitter:creator" content="@uORocketry" />
+		<meta name="twitter:title" content="uORocketry" />
+		<meta
+			name="twitter:description"
+			content="uOttawa's student engineering team that designs, manufactures, and launches high-powered sounding rockets!"
+		/>
+		<meta name="twitter:image" content="https://uorocketry.ca/images/desert-sunrise.jpg" />
 	</head>
 	<body
 		class={`relative m-auto flex h-full scroll-behavior-smooth overflow-auto flex-col ${
