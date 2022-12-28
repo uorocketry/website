@@ -22,7 +22,7 @@ const { title, path, theme = "light" } = Astro.props;
 		<meta name="robots" content="index, follow" />
 		<meta name="language" content="English" />
 		<meta name="theme-color" content="#3730a3" />
-		<meta name="title" content="uORocketry" />
+		<meta name="title" content={`${title} | uORocketry`} />
 		<meta name="author" content="uORocketry" />
 		<meta
 			name="description"
@@ -40,7 +40,7 @@ const { title, path, theme = "light" } = Astro.props;
 		<meta name="msapplication-TileColor" content="#ffffff" />
 		<meta name="theme-color" content="#ffffff" />
 
-		<meta property="og:title" content="uORocketry" />
+		<meta property="og:title" content={`${title} | uORocketry`}  />
 		<meta property="og:site_name" content="uORocketry" />
 		<meta property="og:locale" content="en_US" />
 		<meta property="og:url" content="https://uorocketry.ca" />
@@ -54,7 +54,7 @@ const { title, path, theme = "light" } = Astro.props;
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:site" content="@uORocketry" />
 		<meta name="twitter:creator" content="@uORocketry" />
-		<meta name="twitter:title" content="uORocketry" />
+		<meta name="twitter:title" content={`${title} | uORocketry`}  />
 		<meta
 			name="twitter:description"
 			content="uOttawa's student engineering team that designs, manufactures, and launches high-powered sounding rockets!"
