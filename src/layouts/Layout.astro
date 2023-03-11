@@ -1,6 +1,5 @@
 ---
 import { Picture } from "@astrojs/image/components";
-import background from "../../assets/images/desert-sunrise.jpg";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 
@@ -41,7 +40,7 @@ const { title, path, theme = "light" } = Astro.props;
 		<meta name="msapplication-TileColor" content="#ffffff" />
 		<meta name="theme-color" content="#ffffff" />
 
-		<meta property="og:title" content={`${title} | uORocketry`}  />
+		<meta property="og:title" content={`${title} | uORocketry`} />
 		<meta property="og:site_name" content="uORocketry" />
 		<meta property="og:locale" content="en_US" />
 		<meta property="og:url" content="https://uorocketry.ca" />
@@ -50,17 +49,17 @@ const { title, path, theme = "light" } = Astro.props;
 			content="uOttawa's student engineering team that designs, manufactures, and launches high-powered sounding rockets!"
 		/>
 		<meta property="og:type" content="website" />
-		<meta property="og:image" content="https://uorocketry.ca/images/desert-sunrise.jpg" />
+		<meta property="og:image" content="https://uorocketry.ca/images/desert-sunrise.webp" />
 
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:site" content="@uORocketry" />
 		<meta name="twitter:creator" content="@uORocketry" />
-		<meta name="twitter:title" content={`${title} | uORocketry`}  />
+		<meta name="twitter:title" content={`${title} | uORocketry`} />
 		<meta
 			name="twitter:description"
 			content="uOttawa's student engineering team that designs, manufactures, and launches high-powered sounding rockets!"
 		/>
-		<meta name="twitter:image" content="https://uorocketry.ca/images/desert-sunrise.jpg" />
+		<meta name="twitter:image" content="https://uorocketry.ca/images/desert-sunrise.webp" />
 	</head>
 	<body
 		class={`relative m-auto flex h-full scroll-behavior-smooth overflow-auto flex-col ${
@@ -72,7 +71,7 @@ const { title, path, theme = "light" } = Astro.props;
 			class={`fixed inset-0 object-cover h-full w-full -z-10 ${
 				theme === "dark" ? "filter brightness-50 blur opacity-50" : ""
 			}`}
-			src={background}
+			src={"/images/desert-sunrise.webp"}
 			widths={[200, 400, 800]}
 			sizes="(min-width: 640px) 640px, 100vw"
 			alt="Desert Sunrise"
