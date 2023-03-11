@@ -2,6 +2,7 @@
 import { Picture } from "@astrojs/image/components";
 import background from "../../assets/images/desert-sunrise.jpg";
 import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 
 type Props = {
 	title: string;
@@ -80,6 +81,7 @@ const { title, path, theme = "light" } = Astro.props;
 			position={"center"}
 		/>
 		<slot />
+		<Footer theme={"dark"} />
 	</body>
 </html>
 

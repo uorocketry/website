@@ -1,7 +1,6 @@
 ---
 import "../../assets/styles/mdx.css";
 import Button from "../components/Button.astro";
-import Footer from "../components/Footer.astro";
 import Layout from "../layouts/Layout.astro";
 
 export async function getStaticPaths() {
@@ -46,5 +45,4 @@ export const components = {
 		<h1 class="text-center text-4xl font-bold">{title}</h1>
 		<Content components={components} />
 	</main>
-	<Footer theme={"dark"} />
 </Layout>

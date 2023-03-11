@@ -8,7 +8,13 @@ type Props = {
 const { theme } = Astro.props;
 ---
 
-<footer class={`mt-6 ${theme === "light" ? "text-indigo-900" : "text-indigo-200"}`}>
+<footer class={`mt-6 flex flex-col gap-4 ${theme === "light" ? "text-indigo-900" : "text-indigo-100"}`}>
+	<address class="text-center text-sm font-bold not-italic">
+		<a href="https://goo.gl/maps/D17bVe32ksm7UZpV7" target="_blank" rel="noreferrer" class="block">
+			University of Ottawa, 800 King Edward Ave, Ottawa, ON K1N 6N5
+		</a>
+		<a href="mailto:uorocketry@uottawa.ca" target="_blank" rel="noreferrer" class="block"> uorocketry@uottawa.ca</a>
+	</address>
 	<nav>
 		<ul class="mb-6 flex justify-evenly gap-2">
 			<li><a href="https://github.com/uorocketry"><Icon size={36} pack="mdi" name="github" /></a></li>

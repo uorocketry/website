@@ -1,14 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Footer from "../components/Footer.astro";
 
 const title = "Home";
 const path = "/";
 ---
 
 <Layout title={title} path={path} theme={"light"}>
-	<main class="absolute top-1/4 w-full">
-		<div class="m-auto flex w-min flex-col justify-center gap-4">
+		<main class="h-full flex items-center w-min mx-auto flex-col justify-center gap-4">
 			<h1
 				class="bg-gradient-to-r from-blue-800 to-red-800 bg-clip-text text-6xl font-bold text-transparent sm:text-8xl"
 			>
@@ -16,7 +14,5 @@ const path = "/";
 			</h1>
 			<h2 class="text-center text-2xl font-bold text-indigo-800 sm:text-3xl">uOttawa's fastest team</h2>
 			<p class="text-center text-2xl">uOttawa's student engineering team that designs, manufactures, and launches high-powered sounding rockets!</p>
-			<Footer theme={"light"} />
-		</div>
-	</main>
+		</main>
 </Layout>
