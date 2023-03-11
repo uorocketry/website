@@ -62,8 +62,8 @@ const { title, path, theme = "light" } = Astro.props;
 		<meta name="twitter:image" content="https://uorocketry.ca/images/desert-sunrise.webp" />
 	</head>
 	<body
-		class={`relative m-auto flex h-full scroll-behavior-smooth overflow-auto flex-col ${
-			theme === "dark" ? "text-white bg-gray-900" : "text-gray-900 bg-white"
+		class={`relative m-auto bg-gradient-to-b flex h-full scroll-behavior-smooth overflow-auto flex-col ${
+			theme === "dark" ? "text-white bg-gray-900" : "text-gray-900 from-orange-200/60 to-gray-900"
 		}`}
 	>
 		<Navbar active={path} theme={theme} />
